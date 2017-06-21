@@ -1,0 +1,13 @@
+<div>
+  <div class="header">
+    <a href="/ideas">Back to Ideas Page</a>
+    <a data-method="delete" href="/sessions/<%= session[:userId] %>">Logout</a>
+  </div>
+
+  <h3>Name: <%= @user.name %></h3>
+  <h3>Email: <%= @user.email %></h3>
+
+
+  Number of Ideas: <%= @user.ideas.length %>
+  Number of Like Total: <%= @user.likes.length %>
+</div>

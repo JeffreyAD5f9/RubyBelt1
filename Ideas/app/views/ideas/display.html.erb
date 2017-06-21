@@ -1,0 +1,26 @@
+<div>
+  <div class="header">
+    <h3><%= @idea.user.name %>: </h3><p><%= @idea.idea %></p>
+    <a href="/ideas">Back to Ideas Page</a>
+    <a data-method="delete" href="/sessions/<%= session[:userId] %>">Logout</a>
+  </div>
+
+  <h3>People Who Liked this Idea</h3>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <% @users.each do |user| %>
+      <% if user.ideas_liked_ids.include?(@idea.id) == true %>
+        <tr>
+          <td><a href ="/users/<%= user.id %>"><%= user.name %></a></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+
+</div>
